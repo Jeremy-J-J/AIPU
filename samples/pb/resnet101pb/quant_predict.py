@@ -37,6 +37,16 @@ image = np.reshape(image, (224, 224, 3))
 im = Image.fromarray(image)
 im.save('result.jpeg')
 
+outputfile = './output_resnet_101.bin'
+npyoutput = np.fromfile(outputfile, dtype=np.int8)
+outputclass = npyoutput.argmax()
+print("\n***************** TOP 1 result ***************")
+print("Predict Class is %d" % outputclass)
+
+trueclass = npylabel.argmax()
+print("True Class is %d" % trueclass)
+
+
 
 
 
